@@ -99,7 +99,7 @@ class User:
 print("Please input your id and password")
 id = input("Student ID: ")
 password = getpass.getpass("Pasword: ")
-u = User(1500012739,'xTcwSqn4eGDt')
+u = User(id,password)
 u.login()
 u.get_record_info()
 rec = Record()
