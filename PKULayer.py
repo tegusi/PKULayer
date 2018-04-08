@@ -51,20 +51,20 @@ class User:
         return self.id
 
     def login(self):
-        headers = {"User-Agent": "PKURunner/1.0 (iPhone; iOS 10.2.1; Scale/2.00)"}
+        headers = {"User-Agent": "PKURunner/1.1 (iPhone; iOS 10.3.3; Scale/3.00)"}
         payload = {'appid':'portal','password':self.password,'userName':self.id,'redirUrl':'portal.pku.edu.cn/portal2013/login.jsp/../ssoLogin.do'}
         s = requests.post("https://iaaa.pku.edu.cn/iaaa/oauthlogin.do",headers=headers,data=payload)
         raw_data = json.loads(s.text)
         self.authentication_code = raw_data['token']
         payload = {'access_token':self.authentication_code,'id':self.id}
-        s = requests.post("http://162.105.205.61:10201/user".format(str(self.id)), headers=headers, data=payload)
+        s = requests.post("http://162.105.209.59:80/user".format(str(self.id)), headers=headers, data=payload)
         response  = json.loads(s.text)
         print("Welcome, {} logined succesfully".format(response['data']['name']))
 
     def get_record_info(self):
         headers = {'Authorization': self.authentication_code,
-                   "User-Agent": "PKURunner/1.0 (iPhone; iOS 10.2.1; Scale/2.00)"}
-        s = requests.get("http://162.105.205.61:10201/record/{}".format(str(self.id)),headers=headers)
+                   "User-Agent": "PKURunner/1.1 (iPhone; iOS 10.3.3; Scale/3.00)"}
+        s = requests.get("http://162.105.209.59:80/record/{}".format(str(self.id)),headers=headers)
         response = json.loads(s.text)
         for record in response['data']:
             self.history.data.append(Track(second_to_time(record['duration']),record['distance'],record['verified'] == True))
@@ -88,8 +88,8 @@ class User:
             'duration': int(record.duration),
             'userId': self.id
         }
-        headers = {'Authorization':self.authentication_code,"User-Agent": "PKURunner/1.0 (iPhone; iOS 10.2.1; Scale/2.00)"}
-        s = requests.post("http://162.105.205.61:10201/record/{}".format(str(self.id)),headers=headers,data=payload)
+        headers = {'Authorization':self.authentication_code,"User-Agent": "PKURunner/1.1 (iPhone; iOS 10.3.3; Scale/3.00)"}
+        s = requests.post("http://162.105.209.59:80/record/{}".format(str(self.id)),headers=headers,data=payload)
         response = json.loads(s.text)
         if response["success"] == True:
             print("Success!")
