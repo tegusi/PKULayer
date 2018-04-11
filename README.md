@@ -1,13 +1,20 @@
 # PKULayer
 
-This is a naive tool to generating and uploading mock running track in PKURunner. Sine the PKURunner app is not stable, I don't guarantee fully availability in long term. GPXPY and requests is required.
+This is a naive tool to generate and upload mock running track in PKURunner. Since the PKURunner app is not stable, I can't guarantee full availability in long term. GPXPY and requests is required.
 
 ## Installation
-Download it, run it.
-
-*Only if you have the libraries installed.*
-
-TODO: submit it to pypy
+Clone this repo:
+```
+git clone https://github.com/ctlllll/PKULayer
+```
+Cd repo folder:
+```
+cd PKULayer
+```
+Use pip to install the requirements:
+```
+pip install -r requirements.txt
+```
 ## Usage
 Run the script and input the values it requires.
 
