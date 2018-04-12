@@ -5,7 +5,7 @@ This is a naive tool to generate and upload mock running track in PKURunner. Sin
 ## Installation
 Clone this repo:
 ```
-git clone https://github.com/ctlllll/PKULayer
+git clone https://github.com/Kaffaljidhmah2/PKULayer
 ```
 Cd repo folder:
 ```
