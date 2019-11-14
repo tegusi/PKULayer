@@ -21,4 +21,4 @@ Run the script and input the values it requires.
 For advanced users, you can modify the code as you like. You can see the url captured from Charles.
 
 ## Credits
-I hold the view that everyone should have the right that he choose where and when to run as his wish. 
+I hold the view that everyone should have the right that he chooses where and when to run as his wish. 
